@@ -315,7 +315,8 @@ client.on('interactionCreate', async interaction => {
                 const totalGagne = rows.reduce((sum, r) => sum + r.montant_gagne, 0);
                 const totalBet = rows.reduce((sum, r) => sum + r.montant_bet, 0);
                 const meilleureMulti = Math.max(...rows.map(r => r.multiplication));
-                
+                const montantAchat = rows.reduce((sum, r) => sum + r.montant_achat, 0);
+
                 const embed = new EmbedBuilder()
                     .setTitle(`📊 Statistiques de ${targetUser.username}`)
                     .setThumbnail(targetUser.displayAvatarURL())
