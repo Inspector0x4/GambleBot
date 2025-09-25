@@ -181,9 +181,9 @@ client.on('interactionCreate', async interaction => {
             .setColor(maxWin ? '#FFD700' : '#00FF00') // Or pour max win, vert sinon
             .addFields(
                 { name: '🎰 Slot', value: slotName, inline: true },
-                { name: '💰 Montant gagné', value: `${montantGagne}€`, inline: true },
-                { name: '🎯 Montant bet', value: `${montantBet}€`, inline: true },
-                { name: '💳 Montant achat', value: `${montantAchat}€`, inline: true },
+                { name: '💰 Montant gagné', value: `${montantGagne}$ARS`, inline: true },
+                { name: '🎯 Montant bet', value: `${montantBet}$ARS`, inline: true },
+                { name: '💳 Montant achat', value: `${montantAchat}$ARS`, inline: true },
                 { name: '📊 Multiplication', value: `x${multiplication.toFixed(2)}`, inline: true },
                 { name: '🏆 Max Win', value: maxWin ? 'Oui' : 'Non', inline: true },
                 { name: '🔗 Lien', value: `[Voir la win](${winLink})` }
@@ -238,7 +238,7 @@ client.on('interactionCreate', async interaction => {
                 const rang = (index + 1).toString().padStart(3);
                 const slot = row.slot_name.substring(0, 17).padEnd(17);
                 const multi = `x${row.multiplication.toFixed(2)}`.padStart(6);
-                const gagne = `${row.montant_gagne}€`.padStart(7);
+                const gagne = `${row.montant_gagne}$ARS`.padStart(7);
                 const user = row.username.substring(0, 10);
                 const maxWinIcon = row.max_win ? '👑' : '';
                 
@@ -279,7 +279,7 @@ client.on('interactionCreate', async interaction => {
                 const maxWin = row.max_win ? ' 👑' : '';
                 
                 topList += `${medal} **x${row.multiplication.toFixed(2)}** - ${row.slot_name}\n`;
-                topList += `    ${row.montant_gagne}€ (bet: ${row.montant_bet}€) - ${row.username}${maxWin}\n\n`;
+                topList += `    ${row.montant_gagne}$ARS (bet: ${row.montant_bet}$ARS) - ${row.username}${maxWin}\n\n`;
             });
             
             embed.setDescription(topList);
@@ -323,10 +323,10 @@ client.on('interactionCreate', async interaction => {
                     .addFields(
                         { name: '🎯 Total wins', value: totalWins.toString(), inline: true },
                         { name: '👑 Max wins', value: maxWins.toString(), inline: true },
-                        { name: '💰 Total gagné', value: `${totalGagne}€`, inline: true },
-                        { name: '🎲 Total misé', value: `${totalBet}€`, inline: true },
+                        { name: '💰 Total gagné', value: `${totalGagne}$ARS`, inline: true },
+                        { name: '🎲 Total misé', value: `${totalBet}$ARS`, inline: true },
                         { name: '📈 Meilleure multi', value: `x${meilleureMulti.toFixed(2)}`, inline: true },
-                        { name: '📊 Bénéfice', value: `${(totalGagne - totalBet).toFixed(2)}€`, inline: true }
+                        { name: '📊 Bénéfice', value: `${(totalGagne - totalBet).toFixed(2)}$ARS`, inline: true }
                     );
                 
                 // Top 5 des wins de l'utilisateur
