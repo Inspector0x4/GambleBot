@@ -320,7 +320,7 @@ client.on('interactionCreate', async interaction => {
                 const totalGagne = rows.reduce((sum, r) => sum + r.montant_gagne, 0);
                 const totalBet = rows.reduce((sum, r) => sum + r.montant_bet, 0);
                 const meilleureMulti = Math.max(...rows.map(r => r.multiplication));
-                const montantAchat = rows.reduce((sum, r) => sum + r.montant_achat, 0);
+                const totalAchat = rows.reduce((sum, r) => sum + r.montant_achat, 0);
 
                 const embed = new EmbedBuilder()
                     .setTitle(`📊 Statistiques de ${targetUser.username}`)
@@ -330,7 +330,7 @@ client.on('interactionCreate', async interaction => {
                         { name: '🎯 Total wins', value: totalWins.toString(), inline: true },
                         { name: '👑 Max wins', value: maxWins.toString(), inline: true },
                         { name: '💰 Total gagné', value: `${totalGagne}$ARS`, inline: true },
-                        { name: '🎲 Total misé', value: `${totalBet}$ARS`, inline: true },
+                        { name: '🎲 Total misé', value: `${totalAchat}$ARS`, inline: true },
                         { name: '📈 Meilleure multi', value: `x${meilleureMulti.toFixed(2)}`, inline: true },
                         { name: '📊 Bénéfice', value: `${(totalGagne - totalBet).toFixed(2)}$ARS`, inline: true }
                     );
