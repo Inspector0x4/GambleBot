@@ -322,6 +322,7 @@ client.on('interactionCreate', async interaction => {
                 const meilleureMulti = Math.max(...rows.map(r => r.multiplication));
                 const totalAchat = rows.reduce((sum, r) => sum + r.montant_achat, 0);
 
+                
                 const embed = new EmbedBuilder()
                     .setTitle(`📊 Statistiques de ${targetUser.username}`)
                     .setThumbnail(targetUser.displayAvatarURL())
