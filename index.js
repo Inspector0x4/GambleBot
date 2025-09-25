@@ -5,7 +5,7 @@ const { Routes } = require('discord-api-types/v10');
 
 // Configuration
 
-const TOKEN = 'MTQyMDUxMzE5MjU3MTk2NTQ1Mg.GM-qaO.gsmNP3GH_Af7h8kAjTbxIuJSEUP8hNPojbj6cs';
+const TOKEN = '';
 const CLIENT_ID = '1420513192571965452';
 const GUILD_ID = '1383848181694988439'; // Pour les commandes de guild spécifiques
 
