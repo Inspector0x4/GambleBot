@@ -4,10 +4,15 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
 
 // Configuration
+const TOKEN = process.env.DISCORD_TOKEN;
+const CLIENT_ID = process.env.DISCORD_CLIENT_ID || '1420513192571965452';
+const GUILD_ID = process.env.DISCORD_GUILD_ID || '1383848181694988439'; // Pour les commandes de guild spécifiques
 
-const TOKEN = '';
-const CLIENT_ID = '1420513192571965452';
-const GUILD_ID = '1383848181694988439'; // Pour les commandes de guild spécifiques
+if (!TOKEN) {
+    console.error('❌ Erreur: DISCORD_TOKEN manquant dans les variables d\'environnement!');
+    console.log('Veuillez ajouter votre token Discord dans les secrets Replit.');
+    process.exit(1);
+}
 
 // ✅ INTENTS CORRECTS - Seul Guilds nécessaire pour les slash commands
 const client = new Client({
